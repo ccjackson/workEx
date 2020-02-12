@@ -1,0 +1,46 @@
+//Determine last 4 quarters based on the quarter date of injury month falls in
+                    if (injuryMonth >= 01 && injuryMonth <= 03)
+                    {
+                        q1.Text = "Q4 " + (injuryYear - 1);
+                        q2.Text = "Q3 " + (injuryYear - 1);
+                        q3.Text = "Q2 " + (injuryYear - 1);
+                        q4.Text = "Q1 " + (injuryYear - 1);
+                        DatePickerEnd3.Text = "06/30/" + (injuryYear - 1);
+                        DatePickerEnd4.Text = "03/31/" + (injuryYear - 1);
+                        DatePickerEnd1.Text = "12/31/" + (injuryYear - 1);
+                        DatePickerEnd2.Text = "09/30/" + (injuryYear - 1);
+
+                    }
+                    else if (injuryMonth >= 04 && injuryMonth <= 06)
+                    {
+                        q1.Text = "Q1 " + (injuryYear);
+                        q2.Text = "Q4 " + (injuryYear - 1);
+                        q3.Text = "Q3 " + (injuryYear - 1);
+                        q4.Text = "Q2 " + (injuryYear - 1);
+                        DatePickerEnd4.Text = "06/30/" + (injuryYear - 1);
+                        DatePickerEnd1.Text = "03/31/" + (injuryYear);
+                        DatePickerEnd2.Text = "12/31/" + (injuryYear - 1);
+                        DatePickerEnd3.Text = "09/30/" + (injuryYear - 1);
+                    }
+                    else if (injuryMonth >= 07 && injuryMonth <= 09)
+                    {
+                        q1.Text = "Q2 " + (injuryYear);
+                        q2.Text = "Q1 " + (injuryYear);
+                        q3.Text = "Q4 " + (injuryYear - 1);
+                        q4.Text = "Q3 " + (injuryYear - 1);
+                        DatePickerEnd1.Text = "06/30/" + (injuryYear);
+                        DatePickerEnd2.Text = "03/31/" + (injuryYear);
+                        DatePickerEnd3.Text = "12/31/" + (injuryYear - 1);
+                        DatePickerEnd4.Text = "09/30/" + (injuryYear - 1);
+                    }
+                    else if (injuryMonth >= 10 && injuryMonth <= 12)
+                    {
+                        q1.Text = "Q3 " + (injuryYear);
+                        q2.Text = "Q2 " + (injuryYear);
+                        q3.Text = "Q1 " + (injuryYear);
+                        q4.Text = "Q4 " + (injuryYear - 1);
+                        DatePickerEnd3.Text = "03/30/" + (injuryYear);
+                        DatePickerEnd2.Text = "06/31/" + (injuryYear);
+                        DatePickerEnd4.Text = "12/31/" + (injuryYear - 1);
+                        DatePickerEnd1.Text = "09/30/" + (injuryYear);
+                    }

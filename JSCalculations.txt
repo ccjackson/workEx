@@ -1,0 +1,223 @@
+///Javascript used to perform different equations based on selections made by the user that show the calculations update in real time
+{ 
+            
+            var exception = $find("<%=RadioButtonListException.ClientID%>");
+            var prisonCheck = $find("<%=InmateCheckRadio%>");
+            var inmate = $find("<%=InmateCheckRadio.ClientID%>");
+            var MaxComp = '<%=this.MaxComp%>';
+            var MinComp = '<%=this.MinComp%>';
+            //alert(MaxComp);
+            //var inmateItems = inmate.get_items();
+          
+            //alert(exception);
+            wages1 = document.getElementById("RadTextBoxWages1");
+            wages2 = document.getElementById("RadTextBoxWages2");
+            wages3 = document.getElementById("RadTextBoxWages3")
+            wages4 = document.getElementById("RadTextBoxWages4");
+            weeks = document.getElementById("RadTextBoxTotalWeeks");
+            dest = document.getElementById("RadTextBoxTotalWages");
+            dest3 = document.getElementById("RadTextBoxAvgWage");
+            dest4 = document.getElementById("RadTextBoxCalComp");
+            dest5 = document.getElementById("RadTextBoxWeeklyRate");
+            dest.value = +wages1.value + +wages2.value + +wages3.value + +wages4.value;
+            allowances = document.getElementById("RadTextBoxAdditionalAllowances");
+            dest2 = document.getElementById("RadTextBoxTotal");
+            dest2.value = +allowances.value + +dest.value;
+            dest3.value = dest2.value / weeks.value;
+            dest4.value = dest3.value * .6667;
+            dest2.value = parseFloat(dest2.value).toFixed(2);
+            dest3.value = parseFloat(dest3.value).toFixed(2);
+            dest4.value = parseFloat(dest4.value).toFixed(2);
+            dest5.value = parseFloat(dest5.value).toFixed(2);
+            dest.value = parseFloat(dest.value).toFixed(2);
+            var items = exception.get_items();
+            
+            for (var i = 0; i < items.length; i++) {
+                if (items[i].get_selected()) {
+                    if (items[i].get_text() == "None") {
+                        if (dest3.value < parseFloat(MinComp)) {
+                            dest5.value = dest3.value;
+                        }
+                        else if (dest4.value < parseFloat(MinComp) && dest3.value > parseFloat(MinComp)) {
+                            dest5.value = MinComp;
+                        }
+                        else if (dest4.value > parseFloat(MaxComp)) {
+                            dest5.value = parseFloat(MaxComp);
+                        }
+                        else if (dest4.value < parseFloat(MaxComp) && dest4.value > parseFloat(MinComp)) {
+                            dest5.value = dest4.value;
+                        }
+                        dest5.value = parseFloat(dest5.value).toFixed(2);
+                        //if (dest4.value < 75.00) {
+                        //    dest5.value = 75.00;
+                        //}
+                        //else if (dest4.value > MaxComp) {
+                        //    dest5.value = MaxComp;
+                        //}
+                        //else {
+                        //    dest5.value = dest4.value;
+                        //}
+                    }
+                    else if (items[i].get_text() == "State and National Guard Member") {
+                        if (dest3.value < parseFloat(MinComp)) {
+                        dest4.value = dest3.value;
+                        }
+                        if (dest4.value < parseFloat(MinComp) && dest3.value > parseFloat(MinComp)) {
+                            dest5.value = parseFloat(MinComp);
+                        }
+                        else if (dest4.value > parseFloat(MaxComp)) {
+                            dest5.value = parseFloat(MaxComp);
+                        }
+                        else if (dest4.value < parseFloat(MaxComp) && dest4.value > parseFloat(MinComp)) {
+                            dest5.value = dest4.value;
+                        }
+                        dest5.value = dest3.value * .75;
+                        dest5.value = parseFloat(dest5.value).toFixed(2);
+                        if (dest5.value < 75.00) {
+                            dest5.value = 75.00;
+                        }
+                        else if(dest5.value > parseFloat(MaxComp)) {
+                            dest5.value = parseFloat(MaxComp);
+                        }
+                    }
+                    else if (items[i].get_text() == "Volunteer Fireman") {
+                        if (dest3.value < parseFloat(MinComp)) {
+                            dest4.value = dest3.value;
+                        }
+                        if (dest4.value < parseFloat(MinComp) && dest3.value > parseFloat(MinComp)) {
+                            dest5.value = parseFloat(MinComp);
+                        }
+                        else if (dest4.value > parseFloat(MaxComp)) {
+                            dest5.value = parseFloat(MaxComp);
+                        }
+                        else if (dest4.value < parseFloat(MaxComp) && dest4.value > parseFloat(MinComp)) {
+                            dest5.value = dest4.value;
+                        }
+                        dest5.value = dest3.value * .375;
+                        dest5.value = parseFloat(dest5.value).toFixed(2);
+                        if (dest5.value < 75.00) {
+                            dest5.value = 75.00;
+                        }
+                        else if (dest5.value > parseFloat(MaxComp)) {
+                            dest5.value = parseFloat(MaxComp);
+                        }
+                    }
+                    else if (items[i].get_text() == "Volunteer Rescue Squad Member") {
+                        if (dest3.value < parseFloat(MinComp)) {
+                            dest4.value = dest3.value;
+                        }
+                        if (dest4.value < parseFloat(MinComp) && dest3.value > parseFloat(MinComp)) {
+                            dest5.value = parseFloat(MinComp);
+                        }
+                        else if (dest4.value > parseFloat(MaxComp)) {
+                            dest5.value = parseFloat(MaxComp);
+                        }
+                        else if (dest4.value < parseFloat(MaxComp) && dest4.value > parseFloat(MinComp)) {
+                            dest5.value = dest4.value;
+                        }
+                        dest5.value = dest3.value * .375;
+                        dest5.value = parseFloat(dest5.value).toFixed(2);
+                        if (dest5.value < 75.00) {
+                            dest5.value = 75.00;
+                        }
+                        else if (dest5.value > parseFloat(MaxComp)) {
+                            dest5.value = parseFloat(MaxComp);
+                        }
+                    }
+                    else if (items[i].get_text() == "Volunteer Deputy Sheriff") {
+                        if (dest3.value < parseFloat(MinComp)) {
+                            dest4.value = dest3.value;
+                        }
+                        if (dest4.value < parseFloat(MinComp) && dest3.value > parseFloat(MinComp)) {
+                            dest5.value = parseFloat(MinComp);
+                        }
+                        else if (dest4.value > parseFloat(MaxComp)) {
+                            dest5.value = parseFloat(MaxComp);
+                        }
+                        else if (dest4.value < parseFloat(MaxComp) && dest4.value > parseFloat(MinComp)) {
+                            dest5.value = dest4.value;
+                        }
+                        dest5.value = dest3.value * .375;
+                        dest5.value = parseFloat(dest5.value).toFixed(2);
+                        if (dest5.value < 75.00) {
+                            dest5.value = 75.00;
+                        }
+                        else if (dest5.value > parseFloat(MaxComp)) {
+                            dest5.value = parseFloat(MaxComp);
+                        }
+                    }
+                    else if (items[i].get_text() == "Volunteer State Constable") {
+                        if (dest3.value < parseFloat(MinComp)) {
+                            dest4.value = dest3.value;
+                        }
+                        if (dest4.value < parseFloat(MinComp) && dest3.value > parseFloat(MinComp)) {
+                            dest5.value = parseFloat(MinComp);
+                        }
+                        else if (dest4.value > parseFloat(MaxComp)) {
+                            dest5.value = parseFloat(MaxComp);
+                        }
+                        else if (dest4.value < parseFloat(MaxComp) && dest4.value > parseFloat(MinComp)) {
+                            dest5.value = dest4.value;
+                        }
+                        dest5.value = dest3.value * .375;
+                        dest5.value = parseFloat(dest5.value).toFixed(2);
+                        if (dest5.value < 75.00) {
+                            dest5.value = 75.00;
+                        }
+                        else if (dest5.value > parseFloat(MaxComp)) {
+                            dest5.value = parseFloat(MaxComp);
+                        }
+                    }
+                    else if (items[i].get_text() == "Inmate of SC Department of Corrections, County or Municipal Prison") {
+                        if (dest3.value < parseFloat(MinComp)) {
+                            dest4.value = dest3.value;
+                        }
+                        if (dest4.value < parseFloat(MinComp) && dest3.value > parseFloat(MinComp)) {
+                            dest5.value = parseFloat(MinComp);
+                        }
+                        else if (dest4.value > parseFloat(MaxComp)) {
+                            dest5.value = parseFloat(MaxComp);
+                        }
+                        else if (dest4.value < parseFloat(MaxComp) && dest4.value > parseFloat(MinComp)) {
+                            dest5.value = dest4.value;
+                        }
+                        var cidre = $find("<%=InmateCheckRadio.ClientID%>");
+                        var items = cidre.get_items();
+                        for (var i = 0; i < items.length; i++) {
+                            if (items[i].get_selected()) {
+                                if (items[i].get_text() == "Yes") {
+                                    dest5.value = dest4.value;
+                                }
+                                else {
+                                    dest5.value = 40;
+                                }
+                            }
+                        }
+                    }
+                    else if (items[i].get_text() == "Student Work Study, Marketing or Apprenticeship Participant") {
+                        if (dest3.value < parseFloat(MinComp)) {
+                            dest4.value = dest3.value;
+                        }
+                        if (dest4.value < parseFloat(MinComp) && dest3.value > parseFloat(MinComp)) {
+                            dest5.value = parseFloat(MinComp);
+                        }
+                        else if (dest4.value > parseFloat(MaxComp)) {
+                            dest5.value = parseFloat(MaxComp);
+                        }
+                        else if (dest4.value < parseFloat(MaxComp) && dest4.value > parseFloat(MinComp)) {
+                            dest5.value = dest4.value;
+                        }
+                        dest5.value = dest3.value * .50;
+                        dest5.value = parseFloat(dest5.value).toFixed(2);
+                        if (dest5.value < 75.00) {
+                            dest5.value = 75.00;
+                        }
+                        else if (dest5.value > parseFloat(MaxComp)) {
+                            dest5.value = parseFloat(MaxComp);
+                        }
+                    }                    
+                }
+            } 
+            dest5.value = parseFloat(dest5.value).toFixed(2)
+            //args.set_cancel(true);
+        };
